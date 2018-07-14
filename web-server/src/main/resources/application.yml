@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: web-server
+
+server:
+    port: 8080
+
+zuul:
+  routes:
+    resource:
+      path: /resource/**
+      url: http://localhost:8082/resource/
+    auth:
+      path: /auth/**
+      url: http://localhost:8081/auth/
+
+

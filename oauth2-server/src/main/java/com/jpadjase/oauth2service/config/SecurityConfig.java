@@ -15,11 +15,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .antMatcher("/**")
                 .authorizeRequests()
-                .antMatchers("/", "/auth/login", "/auth/oauth/authorize", "/auth/oauth/confirm_access").permitAll()
+                .antMatchers("/", "/login", "/oauth/authorize", "/oauth/confirm_access").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
-                .loginPage("/auth/login").permitAll()
+                .loginPage("/login").permitAll()
                 .defaultSuccessUrl("/")
                 .and()
                 .csrf()

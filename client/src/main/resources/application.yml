@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: resource
+
+server:
+    port: 8082
+    servlet-path: /resource
+
+
+
+
