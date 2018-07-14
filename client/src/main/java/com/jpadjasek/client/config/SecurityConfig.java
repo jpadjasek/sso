@@ -1,4 +1,4 @@
-package com.jpadjase.oauth2service.config;
+package com.jpadjasek.client.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -7,36 +7,19 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 @Configuration
+@Order(1)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
-    public void configure(HttpSecurity http) throws Exception {
-        http.antMatcher("/**")
-                .authorizeRequests()
-                .antMatchers("/", "/login**", "/oauth/authorize")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .csrf().disable();
-
-/*        http.formLogin()
-                .successForwardUrl("/loged")
-                .permitAll()
-                .and()
-                .requestMatchers()
-                .antMatchers( "/login", "/oauth/authorize")
+    protected void configure(HttpSecurity http) throws Exception {
+        http.requestMatchers()
+                .antMatchers("/login", "/oauth/authorize")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/login")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
+                .anyRequest().authenticated()
                 .and()
-                .logout();*/
-
-
-    } // @formatter:on
+                .formLogin().permitAll();
+    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception { // @formatter:off

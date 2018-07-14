@@ -1,6 +1,6 @@
 server:
   port: 8081
-  servlet-path: /auth
+  context-path: /auth
   session:
      cookie:
        name: OAUTH2SESSION

@@ -12,6 +12,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 //@EnableZuulProxy
 //@EnableOAuth2Resource
 @EnableAuthorizationServer
+@EnableResourceServer
 public class Oauth2Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

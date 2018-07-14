@@ -16,8 +16,7 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
         clients.inMemory()
                 .withClient("SampleClientId")
                 .secret("secret")
-                .authorizedGrantTypes("authorization_code", "refresh_token",
-                        "password");
+                .authorizedGrantTypes("authorization_code");
 
     }
 

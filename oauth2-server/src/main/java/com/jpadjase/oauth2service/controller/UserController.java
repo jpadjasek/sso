@@ -11,4 +11,9 @@ public class UserController {
     public Principal user(Principal principal) {
         return principal;
     }
+
+    @GetMapping("/test")
+    public String test() {
+        return "TEST OAUTH";
+    }
 }
