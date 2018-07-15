@@ -3,9 +3,7 @@ package com.jpadjase.oauth2service.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-import org.springframework.security.oauth2.provider.ClientDetailsService;
 
 @Configuration
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
@@ -16,7 +14,9 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
         clients.inMemory()
                 .withClient("SampleClientId")
                 .secret("secret")
-                .authorizedGrantTypes("authorization_code");
+                .scopes("all")
+                .authorizedGrantTypes("authorization_code")
+                .autoApprove(true);
 
     }
 

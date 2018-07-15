@@ -1,15 +1,19 @@
 server:
   port: 8081
   context-path: /auth
-  session:
-     cookie:
-       name: OAUTH2SESSION
 spring:
   application:
     name: auth
   thymeleaf:
     cache: false
 
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      client-id: SampleClientId
+      client-secret: secret
 
 
 
